@@ -6,9 +6,9 @@ I have to clear my name out as the dev who "made it" beacause, in reality: I Did
 ## Known issues
 Here is a list of issues that I am aware of i'll fix later:
 ```
-  []Online pannel doesn't work!
-    []Visitor Count randomly resets!
-      []Shae Ghost page
+  [fixed]Online pannel doesn't work!
+    [fixed]Visitor Count randomly resets!
+      [fixed, also i dont like shae THAT much 🙄]Shae Ghost page
 ```
 
 
