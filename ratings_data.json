@@ -1,0 +1,139 @@
+{
+  "Javinger": {
+    "ratings": [
+      {
+        "user_id": "user1",
+        "rating": 5,
+        "timestamp": 1758586093.729614
+      },
+      {
+        "user_id": "user2",
+        "rating": 4,
+        "timestamp": 1758586093.731613
+      },
+      {
+        "user_id": "user4",
+        "rating": 3,
+        "timestamp": 1758586093.736891
+      }
+    ],
+    "total_ratings": 3,
+    "average_rating": 4.0
+  },
+  "ScaryJa": {
+    "ratings": [
+      {
+        "user_id": "user1",
+        "rating": 3,
+        "timestamp": 1758586093.730082
+      },
+      {
+        "user_id": "user3",
+        "rating": 4,
+        "timestamp": 1758586093.734227
+      },
+      {
+        "user_id": "user5",
+        "rating": 2,
+        "timestamp": 1758586093.740676
+      }
+    ],
+    "total_ratings": 3,
+    "average_rating": 3.0
+  },
+  "Jazz": {
+    "ratings": [
+      {
+        "user_id": "user1",
+        "rating": 4,
+        "timestamp": 1758586093.730485
+      },
+      {
+        "user_id": "user2",
+        "rating": 5,
+        "timestamp": 1758586093.733702
+      },
+      {
+        "user_id": "user4",
+        "rating": 3,
+        "timestamp": 1758586093.738264
+      }
+    ],
+    "total_ratings": 3,
+    "average_rating": 4.0
+  },
+  "Chess": {
+    "ratings": [
+      {
+        "user_id": "user1",
+        "rating": 5,
+        "timestamp": 1758586093.731008
+      },
+      {
+        "user_id": "user3",
+        "rating": 3,
+        "timestamp": 1758586093.734861
+      },
+      {
+        "user_id": "user5",
+        "rating": 4,
+        "timestamp": 1758586093.740023
+      }
+    ],
+    "total_ratings": 3,
+    "average_rating": 4.0
+  },
+  "GabbyBabbyFabbyDabby": {
+    "ratings": [
+      {
+        "user_id": "user2",
+        "rating": 5,
+        "timestamp": 1758586093.732727
+      },
+      {
+        "user_id": "user4",
+        "rating": 4,
+        "timestamp": 1758586093.737597
+      }
+    ],
+    "total_ratings": 2,
+    "average_rating": 4.5
+  },
+  "Fumbled": {
+    "ratings": [
+      {
+        "user_id": "user2",
+        "rating": 3,
+        "timestamp": 1758586093.733228
+      },
+      {
+        "user_id": "user3",
+        "rating": 4,
+        "timestamp": 1758586093.736167
+      },
+      {
+        "user_id": "user5",
+        "rating": 5,
+        "timestamp": 1758586093.738908
+      }
+    ],
+    "total_ratings": 3,
+    "average_rating": 4.0
+  },
+  "Javi-Love": {
+    "ratings": [
+      {
+        "user_id": "user3",
+        "rating": 5,
+        "timestamp": 1758586093.7355
+      },
+      {
+        "user_id": "user5",
+        "rating": 4,
+        "timestamp": 1758586093.739462
+      }
+    ],
+    "total_ratings": 2,
+    "average_rating": 4.5
+  }
+}
