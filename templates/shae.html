@@ -1,0 +1,1505 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>💕 Shae's Special Page 💕</title>
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --primary: #e91e63;
+                --primary-light: #f48fb1;
+                --primary-dark: #ad1457;
+                --secondary: #ff9800;
+                --background: #121212;
+                --surface: #1e1e1e;
+                --surface-variant: #2d2d2d;
+                --on-background: #ffffff;
+                --on-surface: #ffffff;
+                --on-surface-variant: #b3b3b3;
+                --outline: #404040;
+                --heart-glow: #ff1744;
+                --gradient: linear-gradient(
+                    135deg,
+                    var(--primary) 0%,
+                    var(--secondary) 100%
+                );
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family:
+                    "Inter",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    sans-serif;
+                background: var(--background);
+                color: var(--on-background);
+                min-height: 100vh;
+                overflow-x: hidden;
+                position: relative;
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background:
+                    radial-gradient(
+                        circle at 20% 80%,
+                        rgba(233, 30, 99, 0.1) 0%,
+                        transparent 50%
+                    ),
+                    radial-gradient(
+                        circle at 80% 20%,
+                        rgba(255, 152, 0, 0.1) 0%,
+                        transparent 50%
+                    );
+                pointer-events: none;
+                z-index: -1;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 40px;
+                padding: 20px 0;
+                border-bottom: 1px solid var(--outline);
+            }
+
+            .back-button {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background: none;
+                border: none;
+                color: var(--on-surface-variant);
+                font-size: 16px;
+                cursor: pointer;
+                padding: 12px 16px;
+                border-radius: 24px;
+                transition: all 0.3s ease;
+                text-decoration: none;
+            }
+
+            .back-button:hover {
+                background: var(--surface-variant);
+                color: var(--on-surface);
+                transform: translateX(-4px);
+            }
+
+            .header-title {
+                font-size: 2rem;
+                font-weight: 600;
+                background: var(--gradient);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-align: center;
+                flex: 1;
+            }
+
+            .share-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 48px;
+                height: 48px;
+                background: var(--surface);
+                border: 1px solid var(--outline);
+                border-radius: 50%;
+                color: var(--on-surface);
+                font-size: 20px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .share-button:hover {
+                background: var(--primary);
+                border-color: var(--primary);
+                color: white;
+                transform: scale(1.1);
+            }
+
+            .main-content {
+                display: grid;
+                gap: 40px;
+                align-items: center;
+                min-height: calc(100vh - 200px);
+            }
+
+            .heart-section {
+                text-align: center;
+                padding: 60px 40px;
+                background: var(--surface);
+                border-radius: 32px;
+                border: 1px solid var(--outline);
+                position: relative;
+                overflow: visible;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            }
+
+            .heart-section::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: conic-gradient(
+                    from 0deg,
+                    transparent,
+                    var(--primary),
+                    transparent
+                );
+                animation: rotate 10s linear infinite;
+                opacity: 0.1;
+                z-index: -1;
+            }
+
+            @keyframes rotate {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .clickable-heart {
+                font-size: clamp(4rem, 8vw, 8rem);
+                cursor: pointer;
+                display: inline-block;
+                transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                margin-bottom: 30px;
+                position: relative;
+                z-index: 2;
+                animation:
+                    heartBeat 2s ease-in-out infinite,
+                    heartGlow 3s ease-in-out infinite alternate,
+                    heartFloat 4s ease-in-out infinite;
+                filter: drop-shadow(0 0 30px rgba(255, 23, 68, 0.8))
+                    drop-shadow(0 0 60px rgba(255, 23, 68, 0.4))
+                    drop-shadow(0 0 90px rgba(255, 23, 68, 0.2));
+            }
+
+            @keyframes heartBeat {
+                0%,
+                50%,
+                100% {
+                    transform: scale(1);
+                }
+                25% {
+                    transform: scale(1.15);
+                }
+                75% {
+                    transform: scale(1.05);
+                }
+            }
+
+            @keyframes heartGlow {
+                0% {
+                    filter: drop-shadow(0 0 30px rgba(255, 23, 68, 0.8))
+                        drop-shadow(0 0 60px rgba(255, 23, 68, 0.4))
+                        drop-shadow(0 0 90px rgba(255, 23, 68, 0.2));
+                }
+                100% {
+                    filter: drop-shadow(0 0 50px rgba(255, 23, 68, 1))
+                        drop-shadow(0 0 100px rgba(255, 23, 68, 0.8))
+                        drop-shadow(0 0 150px rgba(255, 23, 68, 0.6))
+                        drop-shadow(0 0 200px rgba(233, 30, 99, 0.4));
+                }
+            }
+
+            @keyframes heartFloat {
+                0%,
+                100% {
+                    transform: translateY(0px) rotate(0deg);
+                }
+                25% {
+                    transform: translateY(-10px) rotate(2deg);
+                }
+                50% {
+                    transform: translateY(-5px) rotate(0deg);
+                }
+                75% {
+                    transform: translateY(-15px) rotate(-2deg);
+                }
+            }
+
+            .clickable-heart:hover {
+                transform: scale(1.4) rotate(10deg) translateY(-20px);
+                animation:
+                    heartExplode 0.8s ease-out,
+                    heartGlowIntense 0.8s ease-out,
+                    heartWiggle 0.8s ease-in-out;
+                filter: drop-shadow(0 0 100px rgba(255, 23, 68, 1))
+                    drop-shadow(0 0 200px rgba(255, 23, 68, 0.8))
+                    drop-shadow(0 0 300px rgba(233, 30, 99, 0.6))
+                    hue-rotate(20deg) saturate(1.5);
+            }
+
+            @keyframes heartExplode {
+                0% {
+                    transform: scale(1.4) rotate(10deg) translateY(-20px);
+                }
+                20% {
+                    transform: scale(1.8) rotate(15deg) translateY(-30px);
+                }
+                40% {
+                    transform: scale(1.2) rotate(-5deg) translateY(-10px);
+                }
+                60% {
+                    transform: scale(1.6) rotate(8deg) translateY(-25px);
+                }
+                80% {
+                    transform: scale(1.3) rotate(-3deg) translateY(-15px);
+                }
+                100% {
+                    transform: scale(1.4) rotate(10deg) translateY(-20px);
+                }
+            }
+
+            @keyframes heartGlowIntense {
+                0%,
+                100% {
+                    filter: drop-shadow(0 0 100px rgba(255, 23, 68, 1))
+                        drop-shadow(0 0 200px rgba(255, 23, 68, 0.8))
+                        drop-shadow(0 0 300px rgba(233, 30, 99, 0.6));
+                }
+                50% {
+                    filter: drop-shadow(0 0 150px rgba(255, 23, 68, 1))
+                        drop-shadow(0 0 300px rgba(255, 23, 68, 1))
+                        drop-shadow(0 0 450px rgba(233, 30, 99, 0.8))
+                        drop-shadow(0 0 600px rgba(255, 152, 0, 0.6));
+                }
+            }
+
+            @keyframes heartWiggle {
+                0%,
+                100% {
+                    transform: scale(1.4) rotate(10deg) translateY(-20px);
+                }
+                10% {
+                    transform: scale(1.4) rotate(15deg) translateY(-22px);
+                }
+                20% {
+                    transform: scale(1.4) rotate(5deg) translateY(-18px);
+                }
+                30% {
+                    transform: scale(1.4) rotate(12deg) translateY(-24px);
+                }
+                40% {
+                    transform: scale(1.4) rotate(8deg) translateY(-16px);
+                }
+                50% {
+                    transform: scale(1.4) rotate(13deg) translateY(-26px);
+                }
+                60% {
+                    transform: scale(1.4) rotate(7deg) translateY(-14px);
+                }
+                70% {
+                    transform: scale(1.4) rotate(11deg) translateY(-22px);
+                }
+                80% {
+                    transform: scale(1.4) rotate(9deg) translateY(-20px);
+                }
+                90% {
+                    transform: scale(1.4) rotate(10deg) translateY(-18px);
+                }
+            }
+
+            .clickable-heart:active {
+                transform: scale(2.2) rotate(360deg) translateY(-40px);
+                animation:
+                    heartSupernova 1.2s ease-out,
+                    heartRainbow 1.2s ease-in-out;
+                filter: drop-shadow(0 0 200px rgba(255, 23, 68, 1))
+                    drop-shadow(0 0 400px rgba(255, 23, 68, 1))
+                    drop-shadow(0 0 600px rgba(233, 30, 99, 1))
+                    drop-shadow(0 0 800px rgba(255, 152, 0, 0.8))
+                    hue-rotate(180deg) saturate(2) brightness(1.5);
+            }
+
+            @keyframes heartSupernova {
+                0% {
+                    transform: scale(2.2) rotate(0deg) translateY(-40px);
+                }
+                25% {
+                    transform: scale(3) rotate(90deg) translateY(-60px);
+                }
+                50% {
+                    transform: scale(2.5) rotate(180deg) translateY(-50px);
+                }
+                75% {
+                    transform: scale(2.8) rotate(270deg) translateY(-70px);
+                }
+                100% {
+                    transform: scale(2.2) rotate(360deg) translateY(-40px);
+                }
+            }
+
+            @keyframes heartRainbow {
+                0% {
+                    filter: hue-rotate(0deg) saturate(2) brightness(1.5);
+                }
+                16.66% {
+                    filter: hue-rotate(60deg) saturate(2) brightness(1.5);
+                }
+                33.33% {
+                    filter: hue-rotate(120deg) saturate(2) brightness(1.5);
+                }
+                50% {
+                    filter: hue-rotate(180deg) saturate(2) brightness(1.5);
+                }
+                66.66% {
+                    filter: hue-rotate(240deg) saturate(2) brightness(1.5);
+                }
+                83.33% {
+                    filter: hue-rotate(300deg) saturate(2) brightness(1.5);
+                }
+                100% {
+                    filter: hue-rotate(360deg) saturate(2) brightness(1.5);
+                }
+            }
+
+            /* Sound wave effects */
+            .sound-wave {
+                position: absolute;
+                border: 3px solid rgba(255, 23, 68, 0.6);
+                border-radius: 50%;
+                animation: soundWaveExpand 2s ease-out infinite;
+                pointer-events: none;
+            }
+
+            .sound-wave:nth-child(2) {
+                animation-delay: 0.5s;
+                border-color: rgba(233, 30, 99, 0.5);
+            }
+
+            .sound-wave:nth-child(3) {
+                animation-delay: 1s;
+                border-color: rgba(255, 152, 0, 0.4);
+            }
+
+            .sound-wave:nth-child(4) {
+                animation-delay: 1.5s;
+                border-color: rgba(255, 23, 68, 0.3);
+            }
+
+            @keyframes soundWaveExpand {
+                0% {
+                    width: 100px;
+                    height: 100px;
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(0.5);
+                }
+                50% {
+                    opacity: 0.7;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+                100% {
+                    width: 400px;
+                    height: 400px;
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(2);
+                }
+            }
+
+            /* Confetti animations */
+            .confetti {
+                position: fixed;
+                pointer-events: none;
+                z-index: 9999;
+                animation: confettiFall 3s linear forwards;
+            }
+
+            @keyframes confettiFall {
+                0% {
+                    transform: translateY(-100vh) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(100vh) rotate(720deg);
+                    opacity: 0;
+                }
+            }
+
+            .confetti.type-1 {
+                background: linear-gradient(45deg, #ff1744, #e91e63);
+                width: 10px;
+                height: 10px;
+                animation-duration: 2.5s;
+            }
+
+            .confetti.type-2 {
+                background: linear-gradient(45deg, #ff9800, #ffc107);
+                width: 8px;
+                height: 15px;
+                animation-duration: 3s;
+            }
+
+            .confetti.type-3 {
+                background: linear-gradient(45deg, #9c27b0, #e91e63);
+                width: 12px;
+                height: 8px;
+                animation-duration: 3.5s;
+            }
+
+            .confetti.type-4 {
+                background: linear-gradient(45deg, #00bcd4, #2196f3);
+                width: 6px;
+                height: 12px;
+                animation-duration: 2.8s;
+            }
+
+            /* Screen shake and background effects */
+            @keyframes screenShakeIntense {
+                0% {
+                    transform: translateX(0);
+                }
+                10% {
+                    transform: translateX(-10px) rotate(0.5deg);
+                }
+                20% {
+                    transform: translateX(10px) rotate(-0.5deg);
+                }
+                30% {
+                    transform: translateX(-8px) rotate(0.3deg);
+                }
+                40% {
+                    transform: translateX(8px) rotate(-0.3deg);
+                }
+                50% {
+                    transform: translateX(-6px) rotate(0.2deg);
+                }
+                60% {
+                    transform: translateX(6px) rotate(-0.2deg);
+                }
+                70% {
+                    transform: translateX(-4px) rotate(0.1deg);
+                }
+                80% {
+                    transform: translateX(4px) rotate(-0.1deg);
+                }
+                90% {
+                    transform: translateX(-2px) rotate(0.05deg);
+                }
+                100% {
+                    transform: translateX(0) rotate(0deg);
+                }
+            }
+
+            @keyframes backgroundPulse {
+                0% {
+                    background: var(--background);
+                    box-shadow: none;
+                }
+                25% {
+                    background: radial-gradient(
+                        circle at center,
+                        rgba(255, 23, 68, 0.15) 0%,
+                        var(--background) 70%
+                    );
+                    box-shadow: inset 0 0 200px rgba(255, 23, 68, 0.3);
+                }
+                50% {
+                    background: radial-gradient(
+                        circle at center,
+                        rgba(255, 23, 68, 0.25) 0%,
+                        rgba(233, 30, 99, 0.1) 50%,
+                        var(--background) 70%
+                    );
+                    box-shadow: inset 0 0 400px rgba(255, 23, 68, 0.4);
+                }
+                75% {
+                    background: radial-gradient(
+                        circle at center,
+                        rgba(255, 23, 68, 0.3) 0%,
+                        rgba(233, 30, 99, 0.15) 30%,
+                        rgba(255, 152, 0, 0.1) 60%,
+                        var(--background) 70%
+                    );
+                    box-shadow: inset 0 0 300px rgba(255, 23, 68, 0.5);
+                }
+                100% {
+                    background: var(--background);
+                    box-shadow: none;
+                }
+            }
+
+            @keyframes containerShake {
+                0% {
+                    transform: translateY(0) scale(1);
+                }
+                10% {
+                    transform: translateY(-5px) scale(1.01);
+                }
+                20% {
+                    transform: translateY(5px) scale(0.99);
+                }
+                30% {
+                    transform: translateY(-3px) scale(1.005);
+                }
+                40% {
+                    transform: translateY(3px) scale(0.995);
+                }
+                50% {
+                    transform: translateY(-2px) scale(1.002);
+                }
+                60% {
+                    transform: translateY(2px) scale(0.998);
+                }
+                70% {
+                    transform: translateY(-1px) scale(1.001);
+                }
+                80% {
+                    transform: translateY(1px) scale(0.999);
+                }
+                90% {
+                    transform: translateY(-0.5px) scale(1);
+                }
+                100% {
+                    transform: translateY(0) scale(1);
+                }
+            }
+
+            /* Dramatic body effects */
+            body.heart-explosion-active {
+                animation:
+                    screenShakeIntense 1.5s ease-out,
+                    backgroundPulse 3s ease-in-out;
+            }
+
+            .container.heart-explosion-active {
+                animation: containerShake 1.2s ease-out;
+            }
+
+            .heart-section.heart-explosion-active {
+                animation: heartSectionGlow 2s ease-out;
+            }
+
+            @keyframes heartSectionGlow {
+                0% {
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                    border: 1px solid var(--outline);
+                }
+                25% {
+                    box-shadow:
+                        0 0 50px rgba(255, 23, 68, 0.8),
+                        0 0 100px rgba(255, 23, 68, 0.4),
+                        0 8px 32px rgba(0, 0, 0, 0.3);
+                    border: 1px solid rgba(255, 23, 68, 0.5);
+                }
+                50% {
+                    box-shadow:
+                        0 0 80px rgba(255, 23, 68, 1),
+                        0 0 160px rgba(255, 23, 68, 0.6),
+                        0 0 240px rgba(233, 30, 99, 0.4),
+                        0 8px 32px rgba(0, 0, 0, 0.3);
+                    border: 1px solid rgba(255, 23, 68, 0.8);
+                }
+                75% {
+                    box-shadow:
+                        0 0 60px rgba(255, 23, 68, 0.9),
+                        0 0 120px rgba(255, 23, 68, 0.5),
+                        0 0 180px rgba(233, 30, 99, 0.3),
+                        0 8px 32px rgba(0, 0, 0, 0.3);
+                    border: 1px solid rgba(255, 23, 68, 0.6);
+                }
+                100% {
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                    border: 1px solid var(--outline);
+                }
+            }
+
+            .message {
+                font-size: clamp(1.5rem, 4vw, 2.5rem);
+                font-weight: 600;
+                margin-bottom: 20px;
+                background: var(--gradient);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                line-height: 1.2;
+            }
+
+            .from-to {
+                font-size: clamp(1rem, 2.5vw, 1.5rem);
+                color: var(--on-surface-variant);
+                font-weight: 400;
+                letter-spacing: 0.5px;
+            }
+
+            .song-section {
+                margin-top: 40px;
+                padding: 40px;
+                background: var(--surface);
+                border-radius: 24px;
+                border: 1px solid var(--outline);
+                box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+            }
+
+            .song-section h2 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 24px;
+                color: var(--on-surface);
+                text-align: center;
+            }
+
+            .song-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 20px;
+                max-height: 400px;
+                overflow-y: auto;
+            }
+
+            .song-card {
+                display: flex;
+                align-items: center;
+                padding: 16px;
+                background: var(--surface-variant);
+                border-radius: 16px;
+                border: 1px solid var(--outline);
+                cursor: pointer;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .song-card:hover {
+                background: var(--primary);
+                color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(233, 30, 99, 0.3);
+            }
+
+            .song-card.active {
+                background: var(--primary);
+                color: white;
+                border-color: var(--primary-light);
+            }
+
+            .song-artwork {
+                width: 48px;
+                height: 48px;
+                background: var(--gradient);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 16px;
+                color: white;
+                font-weight: 600;
+                font-size: 1.2rem;
+                flex-shrink: 0;
+            }
+
+            .song-info {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .song-title {
+                font-weight: 500;
+                font-size: 1rem;
+                margin-bottom: 4px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .song-meta {
+                font-size: 0.875rem;
+                opacity: 0.8;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .song-actions {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .song-card:hover .song-actions {
+                opacity: 1;
+            }
+
+            .play-indicator {
+                width: 24px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+                margin-left: 12px;
+            }
+
+            .sparkle {
+                position: fixed;
+                color: var(--heart-glow);
+                pointer-events: none;
+                font-size: 28px;
+                animation: sparkleExplosion 2.5s ease-out forwards;
+                z-index: 9999;
+            }
+
+            @keyframes sparkleExplosion {
+                0% {
+                    opacity: 1;
+                    transform: scale(0) rotate(0deg);
+                    filter: drop-shadow(0 0 10px currentColor) brightness(2);
+                }
+                20% {
+                    opacity: 1;
+                    transform: scale(1.5) rotate(72deg);
+                    filter: drop-shadow(0 0 20px currentColor) brightness(2.5);
+                }
+                40% {
+                    opacity: 0.9;
+                    transform: scale(2) rotate(144deg) translateY(-30px);
+                    filter: drop-shadow(0 0 30px currentColor) brightness(2.8)
+                        hue-rotate(90deg);
+                }
+                60% {
+                    opacity: 0.7;
+                    transform: scale(2.2) rotate(216deg) translateY(-60px)
+                        translateX(20px);
+                    filter: drop-shadow(0 0 40px currentColor) brightness(3)
+                        hue-rotate(180deg);
+                }
+                80% {
+                    opacity: 0.4;
+                    transform: scale(1.8) rotate(288deg) translateY(-90px)
+                        translateX(-15px);
+                    filter: drop-shadow(0 0 50px currentColor) brightness(3.5)
+                        hue-rotate(270deg);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(0.5) rotate(360deg) translateY(-120px)
+                        translateX(30px);
+                    filter: drop-shadow(0 0 60px currentColor) brightness(4)
+                        hue-rotate(360deg);
+                }
+            }
+
+            .heart-explosion {
+                position: fixed;
+                pointer-events: none;
+                z-index: 9998;
+                font-size: 60px;
+                animation: heartExplosionRing 2s ease-out forwards;
+            }
+
+            @keyframes heartExplosionRing {
+                0% {
+                    opacity: 1;
+                    transform: scale(0) rotate(0deg);
+                    filter: drop-shadow(0 0 30px rgba(255, 23, 68, 1))
+                        brightness(2);
+                }
+                25% {
+                    opacity: 0.8;
+                    transform: scale(2) rotate(90deg);
+                    filter: drop-shadow(0 0 60px rgba(255, 23, 68, 0.8))
+                        brightness(2.5) hue-rotate(45deg);
+                }
+                50% {
+                    opacity: 0.6;
+                    transform: scale(4) rotate(180deg);
+                    filter: drop-shadow(0 0 90px rgba(255, 23, 68, 0.6))
+                        brightness(3) hue-rotate(90deg);
+                }
+                75% {
+                    opacity: 0.3;
+                    transform: scale(6) rotate(270deg);
+                    filter: drop-shadow(0 0 120px rgba(255, 23, 68, 0.4))
+                        brightness(3.5) hue-rotate(135deg);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(8) rotate(360deg);
+                    filter: drop-shadow(0 0 150px rgba(255, 23, 68, 0.2))
+                        brightness(4) hue-rotate(180deg);
+                }
+            }
+
+            .share-notification {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: var(--primary);
+                color: white;
+                padding: 16px 24px;
+                border-radius: 12px;
+                font-weight: 500;
+                box-shadow: 0 4px 24px rgba(233, 30, 99, 0.3);
+                transform: translateX(400px);
+                transition: transform 0.3s ease;
+                z-index: 1000;
+            }
+
+            .share-notification.show {
+                transform: translateX(0);
+            }
+
+            /* Mobile Responsive */
+            @media (max-width: 768px) {
+                .container {
+                    padding: 16px;
+                }
+
+                .header {
+                    margin-bottom: 24px;
+                    padding: 16px 0;
+                }
+
+                .header-title {
+                    font-size: 1.5rem;
+                }
+
+                .back-button {
+                    padding: 8px 12px;
+                    font-size: 14px;
+                }
+
+                .heart-section {
+                    padding: 40px 24px;
+                    margin-bottom: 24px;
+                }
+
+                .song-section {
+                    padding: 24px;
+                    margin-top: 0;
+                }
+
+                .song-grid {
+                    grid-template-columns: 1fr;
+                    max-height: 50vh;
+                }
+
+                .song-card {
+                    padding: 12px;
+                }
+
+                .song-artwork {
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 12px;
+                }
+
+                .main-content {
+                    gap: 24px;
+                    min-height: auto;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .header {
+                    flex-wrap: wrap;
+                    gap: 12px;
+                }
+
+                .header-title {
+                    order: -1;
+                    width: 100%;
+                    text-align: center;
+                    margin-bottom: 16px;
+                }
+
+                .heart-section {
+                    padding: 32px 20px;
+                }
+
+                .song-section {
+                    padding: 20px;
+                }
+            }
+
+            /* Scrollbar styling */
+            .song-grid::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .song-grid::-webkit-scrollbar-track {
+                background: var(--surface);
+                border-radius: 3px;
+            }
+
+            .song-grid::-webkit-scrollbar-thumb {
+                background: var(--outline);
+                border-radius: 3px;
+            }
+
+            .song-grid::-webkit-scrollbar-thumb:hover {
+                background: var(--on-surface-variant);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <a href="/" class="back-button">
+                    <span class="material-icons">arrow_back</span>
+                    Back to JaviRadio
+                </a>
+                <div class="header-title">:)</div>
+                <button class="share-button" id="shareBtn">
+                    <span class="material-icons">share</span>
+                </button>
+            </div>
+
+            <div class="main-content">
+                <div class="heart-section">
+                    <div class="clickable-heart" id="heartEmoji">❤️</div>
+                    <div class="message">
+                        From Vexalous, To My Precious'es🫚💕 &lt;3
+                    </div>
+                    <div class="from-to">
+                        zaaaa zaaa za tux tux tux linux linus
+                    </div>
+                </div>
+
+                <div class="song-section">
+                    <h2>🎵 Dedicated Songs</h2>
+                    <div class="song-grid" id="songGrid">
+                        <!-- Songs will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="share-notification" id="shareNotification">
+            Link copied to clipboard! 📋
+        </div>
+
+        <script>
+            const hearts = [
+                "❤️",
+                "💖",
+                "💕",
+                "💝",
+                "💗",
+                "💓",
+                "💜",
+                "🧡",
+                "💛",
+                "💚",
+                "💙",
+                "🤍",
+                "🤎",
+                "🖤",
+                "💔",
+                "❣️",
+                "💟",
+            ];
+
+            let currentHeartIndex = 0;
+            let currentSong = null;
+
+            const songs = [
+                {
+                    key: "Javinger",
+                    title: "Javinger",
+                    duration: "3:30",
+                    plays: 42,
+                },
+                {
+                    key: "Javi-family",
+                    title: "Javi Family",
+                    duration: "1:49",
+                    plays: 28,
+                },
+                {
+                    key: "Break-Config",
+                    title: "Break Config",
+                    duration: "3:51",
+                    plays: 35,
+                },
+                {
+                    key: "JavMarrage",
+                    title: "Javmarrage",
+                    duration: "3:11",
+                    plays: 31,
+                },
+                {
+                    key: "Javi-Love",
+                    title: "Javi Love",
+                    duration: "3:39",
+                    plays: 56,
+                },
+                {
+                    key: "jazz",
+                    title: "Jazz",
+                    duration: "2:34",
+                    plays: 23,
+                },
+                {
+                    key: "Tux",
+                    title: "Tux",
+                    duration: "2:40",
+                    plays: 29,
+                },
+                {
+                    key: "Chess",
+                    title: "Chess",
+                    duration: "1:32",
+                    plays: 18,
+                },
+                {
+                    key: "her-perspective",
+                    title: "Her Perspective",
+                    duration: "2:12",
+                    plays: 47,
+                },
+                {
+                    key: "Castles-Of-Pride",
+                    title: "Castles Of Pride",
+                    duration: "2:30",
+                    plays: 33,
+                },
+                {
+                    key: "Original-Javier",
+                    title: "Original Javier",
+                    duration: "4:23",
+                    plays: 38,
+                },
+                {
+                    key: "ScaryJa",
+                    title: "ScaryJa",
+                    duration: "3:00",
+                    plays: 15,
+                },
+                {
+                    key: "GabbyBabbyFabbyDabby",
+                    title: "Gabby Babby Fabby Dabby",
+                    duration: "3:15",
+                    plays: 22,
+                },
+                {
+                    key: "Fumbled",
+                    title: "Fumbled",
+                    duration: "2:45",
+                    plays: 19,
+                },
+            ];
+
+            function changeHeart() {
+                const heartEmoji = document.getElementById("heartEmoji");
+                currentHeartIndex = (currentHeartIndex + 1) % hearts.length;
+                heartEmoji.textContent = hearts[currentHeartIndex];
+
+                // Trigger dramatic screen effects
+                const body = document.body;
+                const container = document.querySelector(".container");
+                const heartSection = document.querySelector(".heart-section");
+
+                // Add explosion classes
+                body.classList.add("heart-explosion-active");
+                container.classList.add("heart-explosion-active");
+                heartSection.classList.add("heart-explosion-active");
+
+                // Create massive sparkle effect
+                createSparkles(heartEmoji);
+
+                // Create sound waves
+                createSoundWaves(heartEmoji);
+
+                // Create confetti explosion
+                createConfettiExplosion();
+
+                // Create screen flash effect
+                createScreenFlash();
+
+                // Remove classes after animation
+                setTimeout(() => {
+                    body.classList.remove("heart-explosion-active");
+                    container.classList.remove("heart-explosion-active");
+                    heartSection.classList.remove("heart-explosion-active");
+                }, 3000);
+            }
+
+            function createScreenFlash() {
+                const flash = document.createElement("div");
+                flash.style.position = "fixed";
+                flash.style.top = "0";
+                flash.style.left = "0";
+                flash.style.width = "100vw";
+                flash.style.height = "100vh";
+                flash.style.background =
+                    "radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,23,68,0.4) 50%, transparent 100%)";
+                flash.style.pointerEvents = "none";
+                flash.style.zIndex = "10000";
+                flash.style.opacity = "0";
+                flash.style.transition = "opacity 0.3s ease-out";
+
+                document.body.appendChild(flash);
+
+                // Flash effect
+                requestAnimationFrame(() => {
+                    flash.style.opacity = "1";
+                    setTimeout(() => {
+                        flash.style.opacity = "0";
+                        setTimeout(() => {
+                            flash.remove();
+                        }, 300);
+                    }, 100);
+                });
+            }
+
+            function createSoundWaves(element) {
+                const rect = element.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                // Create 4 sound wave rings
+                for (let i = 0; i < 4; i++) {
+                    const wave = document.createElement("div");
+                    wave.className = "sound-wave";
+                    wave.style.position = "fixed";
+                    wave.style.left = centerX + "px";
+                    wave.style.top = centerY + "px";
+                    wave.style.zIndex = "9997";
+
+                    document.body.appendChild(wave);
+
+                    setTimeout(() => {
+                        wave.remove();
+                    }, 2000);
+                }
+            }
+
+            function createConfettiExplosion() {
+                const colors = [
+                    ["#ff1744", "#e91e63"],
+                    ["#ff9800", "#ffc107"],
+                    ["#9c27b0", "#e91e63"],
+                    ["#00bcd4", "#2196f3"],
+                    ["#4caf50", "#8bc34a"],
+                    ["#ff5722", "#ff9800"],
+                    ["#673ab7", "#9c27b0"],
+                    ["#f44336", "#e91e63"],
+                ];
+
+                // Create 100 pieces of confetti
+                for (let i = 0; i < 100; i++) {
+                    const confetti = document.createElement("div");
+                    confetti.className = `confetti type-${(i % 4) + 1}`;
+
+                    // Random starting position across the top of screen
+                    confetti.style.left = Math.random() * 100 + "vw";
+                    confetti.style.top = "-20px";
+
+                    // Random colors
+                    const colorPair =
+                        colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.background = `linear-gradient(45deg, ${colorPair[0]}, ${colorPair[1]})`;
+
+                    // Random size variation
+                    const size = 6 + Math.random() * 8;
+                    confetti.style.width = size + "px";
+                    confetti.style.height = size + "px";
+
+                    // Random delay for staggered effect
+                    confetti.style.animationDelay = Math.random() * 0.5 + "s";
+
+                    // Add some rotation variation
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 4000);
+                }
+            }
+
+            function createSparkles(element) {
+                const rect = element.getBoundingClientRect();
+                const sparkleEmojis = [
+                    "✨",
+                    "💫",
+                    "⭐",
+                    "🌟",
+                    "💖",
+                    "💕",
+                    "💝",
+                    "🎆",
+                    "🎇",
+                    "💥",
+                    "🔥",
+                    "🌈",
+                    "💎",
+                    "👑",
+                    "🦋",
+                ];
+                const heartEmojis = ["💖", "💕", "💗", "💓", "💝", "💘"];
+
+                // Create main explosion ring
+                const explosionRing = document.createElement("div");
+                explosionRing.className = "heart-explosion";
+                explosionRing.textContent = "💥";
+                explosionRing.style.left = rect.left + rect.width / 2 + "px";
+                explosionRing.style.top = rect.top + rect.height / 2 + "px";
+                explosionRing.style.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
+                document.body.appendChild(explosionRing);
+
+                // Create massive sparkle explosion
+                for (let i = 0; i < 25; i++) {
+                    const sparkle = document.createElement("div");
+                    sparkle.className = "sparkle";
+
+                    // Use different emojis for variety
+                    const emoji =
+                        i < 15
+                            ? sparkleEmojis[
+                                  Math.floor(
+                                      Math.random() * sparkleEmojis.length,
+                                  )
+                              ]
+                            : heartEmojis[
+                                  Math.floor(Math.random() * heartEmojis.length)
+                              ];
+                    sparkle.textContent = emoji;
+
+                    // Create circular explosion pattern
+                    const angle = (i / 25) * 2 * Math.PI;
+                    const radius = 100 + Math.random() * 150;
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
+
+                    const startX = centerX + Math.cos(angle) * (radius * 0.2);
+                    const startY = centerY + Math.sin(angle) * (radius * 0.2);
+
+                    sparkle.style.left = startX + "px";
+                    sparkle.style.top = startY + "px";
+                    sparkle.style.color = `hsl(${Math.random() * 360}, 100%, ${60 + Math.random() * 40}%)`;
+
+                    // Add random delay for staggered effect
+                    sparkle.style.animationDelay = `${Math.random() * 0.5}s`;
+
+                    // Random size variation
+                    sparkle.style.fontSize = `${20 + Math.random() * 20}px`;
+
+                    document.body.appendChild(sparkle);
+
+                    setTimeout(() => {
+                        sparkle.remove();
+                    }, 2500);
+                }
+
+                // Create additional floating hearts that rise up
+                for (let i = 0; i < 12; i++) {
+                    setTimeout(() => {
+                        const floatingHeart = document.createElement("div");
+                        floatingHeart.className = "sparkle";
+                        floatingHeart.textContent =
+                            heartEmojis[
+                                Math.floor(Math.random() * heartEmojis.length)
+                            ];
+                        floatingHeart.style.fontSize = `${25 + Math.random() * 15}px`;
+                        floatingHeart.style.color = `hsl(${320 + Math.random() * 60}, 100%, ${70 + Math.random() * 30}%)`;
+
+                        const x =
+                            rect.left - 50 + Math.random() * (rect.width + 100);
+                        const y = rect.bottom + Math.random() * 50;
+
+                        floatingHeart.style.left = x + "px";
+                        floatingHeart.style.top = y + "px";
+
+                        document.body.appendChild(floatingHeart);
+
+                        setTimeout(() => {
+                            floatingHeart.remove();
+                        }, 2500);
+                    }, i * 100);
+                }
+
+                // Clean up explosion ring
+                setTimeout(() => {
+                    explosionRing.remove();
+                }, 2000);
+            }
+
+            async function loadSongs() {
+                try {
+                    const response = await fetch("/api/songs");
+                    const apiSongs = await response.json();
+
+                    // Merge API data with local data
+                    const mergedSongs = songs.map((localSong) => {
+                        const apiSong = apiSongs.find(
+                            (s) => s.key === localSong.key,
+                        );
+                        return apiSong
+                            ? { ...localSong, ...apiSong }
+                            : localSong;
+                    });
+
+                    renderSongs(mergedSongs);
+                } catch (error) {
+                    console.error("Error loading songs:", error);
+                    renderSongs(songs);
+                }
+            }
+
+            function renderSongs(songsData) {
+                const songGrid = document.getElementById("songGrid");
+                const html = songsData
+                    .map((song) => {
+                        const firstLetter = song.title.charAt(0).toUpperCase();
+                        return `
+                        <div class="song-card" data-key="${song.key}" onclick="selectSong('${song.key}', '${song.title}')">
+                            <div class="song-artwork">${firstLetter}</div>
+                            <div class="song-info">
+                                <div class="song-title">${song.title}</div>
+                                <div class="song-meta">
+                                    <span>${song.formatted_duration || song.duration}</span>
+                                    <span>•</span>
+                                    <span>${song.play_count || song.plays} plays</span>
+                                </div>
+                            </div>
+                            <div class="song-actions">
+                                <div class="play-indicator">
+                                    <span class="material-icons" style="font-size: 16px;">play_arrow</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    })
+                    .join("");
+
+                songGrid.innerHTML = html;
+            }
+
+            function selectSong(songKey, songTitle) {
+                // Remove active class from all cards
+                document.querySelectorAll(".song-card").forEach((card) => {
+                    card.classList.remove("active");
+                });
+
+                // Add active class to selected card
+                const selectedCard = document.querySelector(
+                    `[data-key="${songKey}"]`,
+                );
+                if (selectedCard) {
+                    selectedCard.classList.add("active");
+                }
+
+                currentSong = { key: songKey, title: songTitle };
+
+                // Redirect to main page with hash
+                window.location.href = `/#${songKey}`;
+            }
+
+            function goBack() {
+                window.location.href = "/";
+            }
+
+            function shareCurrentSong() {
+                if (currentSong) {
+                    const shareUrl = `${window.location.origin}/#${currentSong.key}`;
+                    navigator.clipboard
+                        .writeText(shareUrl)
+                        .then(() => {
+                            showShareNotification();
+                        })
+                        .catch(() => {
+                            // Fallback for older browsers
+                            showShareNotification();
+                        });
+                } else {
+                    const shareUrl = window.location.href;
+                    navigator.clipboard
+                        .writeText(shareUrl)
+                        .then(() => {
+                            showShareNotification();
+                        })
+                        .catch(() => {
+                            showShareNotification();
+                        });
+                }
+            }
+
+            function showShareNotification() {
+                const notification =
+                    document.getElementById("shareNotification");
+                notification.classList.add("show");
+                setTimeout(() => {
+                    notification.classList.remove("show");
+                }, 3000);
+            }
+
+            function handleHashChange() {
+                const hash = window.location.hash.slice(1);
+                if (hash) {
+                    const card = document.querySelector(`[data-key="${hash}"]`);
+                    if (card) {
+                        card.classList.add("active");
+                    }
+                }
+            }
+
+            // Event listeners
+            document
+                .getElementById("heartEmoji")
+                .addEventListener("click", changeHeart);
+            document
+                .getElementById("shareBtn")
+                .addEventListener("click", shareCurrentSong);
+
+            // Initialize
+            document.addEventListener("DOMContentLoaded", () => {
+                loadSongs();
+                handleHashChange();
+            });
+
+            window.addEventListener("hashchange", handleHashChange);
+
+            // Auto-cycle hearts every 8 seconds for more dramatic effect
+            setInterval(() => {
+                changeHeart();
+                // Add subtle effects even on auto-change
+                const heartEmoji = document.getElementById("heartEmoji");
+                if (heartEmoji && Math.random() > 0.6) {
+                    createSparkles(heartEmoji);
+                    if (Math.random() > 0.8) {
+                        createSoundWaves(heartEmoji);
+                    }
+                }
+            }, 8000);
+        </script>
+    </body>
+</html>

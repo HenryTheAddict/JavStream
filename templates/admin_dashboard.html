@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Admin Dashboard</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family:
+                    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    Oxygen, Ubuntu, sans-serif;
+                background: #f5f5f5;
+                padding: 20px;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            header {
+                background: #333;
+                color: white;
+                padding: 20px;
+                border-radius: 8px;
+                margin-bottom: 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 20px;
+            }
+
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                padding: 8px 16px;
+                border-radius: 4px;
+                transition: background 0.3s;
+            }
+
+            .nav-links a:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                margin-bottom: 30px;
+            }
+
+            .stat-card {
+                background: white;
+                padding: 25px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+
+            .stat-value {
+                font-size: 36px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .stat-label {
+                color: #666;
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .stat-card.pending .stat-value {
+                color: #ffc107;
+            }
+
+            .stat-card.approved .stat-value {
+                color: #28a745;
+            }
+
+            .stat-card.rejected .stat-value {
+                color: #dc3545;
+            }
+
+            .stat-card.total .stat-value {
+                color: #007bff;
+            }
+
+            .actions-section {
+                background: white;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            h2 {
+                font-size: 20px;
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+            .action-buttons {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+
+            .action-btn {
+                display: inline-block;
+                padding: 15px 20px;
+                background: #007bff;
+                color: white;
+                text-decoration: none;
+                border-radius: 6px;
+                text-align: center;
+                transition: background 0.3s;
+            }
+
+            .action-btn:hover {
+                background: #0056b3;
+            }
+
+            .action-btn.primary {
+                background: #28a745;
+            }
+
+            .action-btn.primary:hover {
+                background: #218838;
+            }
+
+            .info-box {
+                background: #e7f3ff;
+                border-left: 4px solid #007bff;
+                padding: 15px;
+                margin-top: 30px;
+                border-radius: 4px;
+            }
+
+            .info-box p {
+                color: #004085;
+                line-height: 1.6;
+            }
+
+            @media (max-width: 768px) {
+                header {
+                    flex-direction: column;
+                    gap: 15px;
+                    text-align: center;
+                }
+
+                .nav-links {
+                    flex-direction: column;
+                    width: 100%;
+                }
+
+                .stats-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Admin Dashboard</h1>
+                <div class="nav-links">
+                    <a href="/admin/compliments">Moderate Compliments</a>
+                    <a href="/shae">View Public Page</a>
+                    <a href="/">JaviRadio</a>
+                    <a href="/admin/logout">Logout</a>
+                </div>
+            </header>
+
+            <div class="stats-grid">
+                <div class="stat-card total">
+                    <div class="stat-value">🎵</div>
+                    <div class="stat-label">JaviRadio Active</div>
+                </div>
+                <div class="stat-card approved">
+                    <div class="stat-value">💖</div>
+                    <div class="stat-label">For Shae</div>
+                </div>
+                <div class="stat-card pending">
+                    <div class="stat-value">🎶</div>
+                    <div class="stat-label">Music Playing</div>
+                </div>
+                <div class="stat-card total">
+                    <div class="stat-value">✨</div>
+                    <div class="stat-label">All Good</div>
+                </div>
+            </div>
+
+            <div class="actions-section">
+                <h2>Quick Actions</h2>
+                <div class="action-buttons">
+                    <a href="/" class="action-btn primary"> Go to JaviRadio </a>
+                    <a href="/shae" class="action-btn"> View Shae's Page </a>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <p>
+                    <strong>Admin Dashboard:</strong><br />
+                    • JaviRadio is running smoothly<br />
+                    • Music streaming is active<br />
+                    • Shae's special page is live<br />
+                    • All systems operational
+                </p>
+            </div>
+        </div>
+
+        <script>
+            // Auto-refresh stats every 30 seconds
+            setTimeout(() => {
+                location.reload();
+            }, 30000);
+        </script>
+    </body>
+</html>
